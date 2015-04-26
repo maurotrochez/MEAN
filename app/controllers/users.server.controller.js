@@ -27,3 +27,17 @@ exports.userById = function (req, res, next, id) {
 		next();
 	});
 };
+
+exports.update = function (req, res, next) {
+	User.findOneAndUpdate(req.user.id, req.body, function (err, user) {
+		if(err) return next(err);
+		return res.json(user);
+	});
+};
+
+exports.delete = function (req, res, next) {
+	req.user.remove(function (err) {
+		if (err) return next(err);
+		res.json(req.user);
+	});
+};
