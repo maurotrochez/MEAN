@@ -41,10 +41,10 @@ var UserSchema = new Schema({
 	created : {
 		type: Date,
 		default: Date.now()
-	},
+	}/*,
 	website:{
 		type: String,
-		/*set: function(url){
+		set: function(url){
 			if(!url) return url;
 			else{
 				if(url.indexOf('http://') !== 0 && url.indexOf('https://') !== 0){
@@ -52,7 +52,7 @@ var UserSchema = new Schema({
 				}
 				return url;
 			}
-		},*/
+		},
 		get: function (url) {
 			if(!url) return url;
 			else{
@@ -60,7 +60,7 @@ var UserSchema = new Schema({
 			}
 			return url;
 		}
-	}
+	}**/
 });
 
 UserSchema.virtual('fullName')
@@ -84,9 +84,9 @@ UserSchema.methods.hashPassword = function (password) {
 	return crypto.pbkdf2Sync(password, this.salt, 10000, 64).toString('base64');
 };
 
-UserSchema.statics.findOneByUsername = function (username, callback) {
+/*UserSchema.statics.findOneByUsername = function (username, callback) {
 	this.findOne({ username: new RegExp(username, 'i') }, callback);
-};
+};*/
 
 UserSchema.statics.findUniqueUsername = function (username, suffix, callback) {
 	var _this = this;
@@ -109,10 +109,11 @@ UserSchema.methods.authenticate = function (password) {
 	return this.password === this.hashPassword(password);
 };
 
-UserSchema.post('save', function (next) {
+/*UserSchema.post('save', function (next) {
 	if(this.isNew) console.log('A new user was created.');
 	else console.log('A user updated is details.');
-});
+	next();
+});*/
 
 UserSchema.set('toJSON', { getters: true, virtual: true });
 mongoose.model('User', UserSchema);
