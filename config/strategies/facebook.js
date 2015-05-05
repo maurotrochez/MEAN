@@ -13,7 +13,6 @@ module.exports = function () {
 	},
 		function (req, res, accessToken, refreshToken, profile, done) {
 			var providerData = profile._json;
-			//console.log(profile);
 			providerData.accessToken = accessToken;
 			providerData.refreshToken = refreshToken;
 
@@ -27,7 +26,6 @@ module.exports = function () {
 				providerId: profile.id,
 				providerData: providerData
 			};
-			//console.log(done);
 			users.saveOAuthUserProfile(req, providerUserProfile, done);
 		}));
 };
