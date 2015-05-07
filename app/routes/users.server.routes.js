@@ -39,6 +39,21 @@ module.exports = function (app) {
 		successRedirect: '/'
 	}));
 
+	app.get('/oauth/google', passport.authenticate('google', {
+		failureRedirect: '/signin',
+		scope: [
+			'https://www.googleapis.com/auth/userinfo.profile',
+			'https://www.googleapis.com/auth/userinfo.email',
+			'https://www.googleapis.com/auth/plus.me',
+			'https://www.googleapis.com/auth/plus.login'
+		]
+	}));
+
+	app.get('/oauth/google/callback', passport.authenticate('google', {
+		failureRedirect: '/signin',
+		successRedirect: '/'
+	}));
+
 	app.route('/users')
 		.post(users.create)
 		.get(users.list);
