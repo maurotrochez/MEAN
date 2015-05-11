@@ -54,14 +54,14 @@ module.exports = function (app) {
 		successRedirect: '/'
 	}));
 
-	app.route('/users')
+	/*app.route('/users')
 		.post(users.create)
 		.get(users.list);
 
 	app.route('/users/:userId')
 		.get(users.read)
 		.put(users.update)
-		.delete(users.delete);
+		.delete(users.delete);*/
 
-	app.param('userId', users.userById);
+	/*app.param('userId', users.userById);*/
 };
