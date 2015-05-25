@@ -8,7 +8,6 @@ var user, article;
 
 describe('Article model unit tests:', function () {
 	beforeEach(function (done) {
-		console.log(article);
 		user = new User({
 			firstName: 'Full',
 			lastName: 'Name',
@@ -47,6 +46,7 @@ describe('Article model unit tests:', function () {
 
 	afterEach(function (done) {
 		Article.remove().exec();
+		User.remove().exec();
 		done();
 	});
 });

@@ -26,10 +26,12 @@ describe('Articles controller unit test:', function () {
 			});
 
 			article.save(function (err) {
+				if(err) throw err;
 				done();
 			});
 		});
 	});
+
 	describe('Testing the GET methods', function () {
 		it('Should be able to get the list of articles', function (done) {
 			request(app).get('/api/articles/')
