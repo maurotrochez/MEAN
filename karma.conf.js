@@ -6,7 +6,7 @@ module.exports = function (config) {
 			'public/lib/angular-resource/angular-resource.js',
 			'public/lib/angular-route/angular-route.js',
 			'public/lib/angular-mocks/angular-mocks.js',
-			'public/applicaton.js',
+			'public/application.js',
 			'public/*[!lib]*/*.js',
 			'public/*[!lib]*/*[!test]*/*.js',
 			'public/*[!lib]*/tests/unit/*.js'
