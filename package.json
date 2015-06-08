@@ -23,8 +23,7 @@
   },
 
   "scripts": {
-    "start": "node server.js",
-    "postinstall": "if [ -d \"$OPENSHIFT_REPO_DIR\" ]; then (export HOME=\"$OPENSHIFT_REPO_DIR\"/..; $(npm bin)/bower install) else ($(npm bin)/bower install) fi && npm run setup"
+    "start": "node server.js"
   },
   "main": "server.js"
 }
