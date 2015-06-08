@@ -39,5 +39,9 @@
     "karma-phantomjs-launcher": "^0.1.4",
     "should": "^6.0.3",
     "supertest": "^1.0.1"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "main": "server.js"
 }
