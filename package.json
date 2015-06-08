@@ -23,7 +23,8 @@
   },
 
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "postinstall": "HOME=$HOME/app-root/runtime node node_modules/bower/bin/bower install"
   },
   "main": "server.js"
 }
